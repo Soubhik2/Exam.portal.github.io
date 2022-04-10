@@ -69,7 +69,7 @@ function Click(key) {
 
     console.log('1 uid ' + auth.currentUser.uid);
 
-    firebase.database().ref('Result/' + auth.currentUser.uid + '/' + key + '/submit').on("value", function(snapshot) {
+    firebase.database().ref('Result/' + auth.currentUser.uid + '/' + localStorage.getItem('PaperName') + '/submit').on("value", function(snapshot) {
 
         if (snapshot.exists()) {
             result = snapshot.val().result;

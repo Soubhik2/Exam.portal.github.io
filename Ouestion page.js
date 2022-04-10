@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged((user) => {
         // ...
         Uid = firebase.auth().currentUser.uid;
         console.log(firebase.auth().currentUser.uid);
-        firebase.database().ref('Result/' + auth.currentUser.uid + '/' + localStorage.getItem('Key') + '/submit').on("value", function(snapshot) {
+        firebase.database().ref('Result/' + auth.currentUser.uid + '/' + localStorage.getItem('PaperName') + '/submit').on("value", function(snapshot) {
 
             if (snapshot.exists()) {
                 result = snapshot.val().result;
