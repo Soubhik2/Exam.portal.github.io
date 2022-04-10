@@ -53,7 +53,7 @@ firebase.database().ref('Qus').once('value', (snapshot) => {
             <div class="card-body">
                 <h5 class="card-title">Subject: ` + subject + `</h5>
                 <p class="card-text">Id of paper: [` + id + `].</p>
-                <a href="#" onclick="Click('` + key + `')" class="btn btn-primary">View Exam</a>
+                <a href="#" onclick="Click('` + key + `','`+ paper + `')" class="btn btn-primary">View Exam</a>
             </div>
         </div>
             `;
@@ -64,12 +64,12 @@ firebase.database().ref('Qus').once('value', (snapshot) => {
 });
 
 
-function Click(key) {
+function Click(key,paper) {
     var result;
 
     console.log('1 uid ' + auth.currentUser.uid);
 
-    firebase.database().ref('Result/' + auth.currentUser.uid + '/' + localStorage.getItem('PaperName') + '/submit').on("value", function(snapshot) {
+    firebase.database().ref('Result/' + auth.currentUser.uid + '/' + paper + '/submit').on("value", function(snapshot) {
 
         if (snapshot.exists()) {
             result = snapshot.val().result;
