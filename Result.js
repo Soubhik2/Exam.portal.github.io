@@ -13,8 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-let result;
-
 window.onload = () => {
 
 }
@@ -37,7 +35,7 @@ firebase.auth().onAuthStateChanged((user) => {
                     // let myAns = Childsnapshot.val().myAns;
                     // let result = Childsnapshot.val().result;
                     let key = Childsnapshot.key;
-                    result = Childsnapshot.child('submit').val().result;
+                    let result = Childsnapshot.child('submit').val().result;
                     console.log('re', result);
 
 
@@ -45,7 +43,7 @@ firebase.auth().onAuthStateChanged((user) => {
                     let createElement = document.createElement('p');
                     createElement.innerHTML =
                         `
-                        <a href="#"><div onclick="Click('` + key + `')" class="alert alert-dark" role="alert">
+                        <a href="#"><div onclick="Click('` + key + `','` + result + `')" class="alert alert-dark" role="alert">
                         ` + key + `
                       </div></a>
             `;
@@ -66,7 +64,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
-function Click(key) {
+function Click(key,result) {
     // console.log(key);
 
     if (result == '1') {
