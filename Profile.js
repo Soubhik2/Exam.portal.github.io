@@ -59,11 +59,8 @@ function Update() {
 
 function Upload() {
 
-    firebase.database().ref('Users/' + userId).set({
+    firebase.database().ref('Users/' + userId).update({
         userName: document.getElementsByTagName('input')[0].value,
-        userId: userId,
-        phoneNumber: phoneNumber,
-        imageUrl: imageUrl,
     }).then(() => {
 
     });

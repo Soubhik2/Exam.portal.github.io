@@ -63,7 +63,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
                 div1[0].appendChild(createElement);
             });
-            document.getElementsByClassName('spinner-border')[0].style.display = 'none';
+            // document.getElementsByClassName('spinner-border')[0].style.display = 'none';
     });
         console.log(firebase.auth().currentUser.uid);
     } else {

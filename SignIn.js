@@ -147,7 +147,7 @@ function Save() {
                 }).then(() => {
                     console.log('image ' + imageUrl);
 
-                    firebase.database().ref('Users/' + firebase.auth().currentUser.uid).set({
+                    firebase.database().ref('Users/' + firebase.auth().currentUser.uid).update({
                         userName: document.getElementsByTagName('input')[2].value,
                         userId: firebase.auth().currentUser.uid,
                         phoneNumber: document.getElementsByTagName('input')[0].value,
@@ -169,7 +169,7 @@ function Save() {
             }
         );
     } else {
-        firebase.database().ref('Users/' + firebase.auth().currentUser.uid).set({
+        firebase.database().ref('Users/' + firebase.auth().currentUser.uid).update({
             userName: document.getElementsByTagName('input')[2].value,
             userId: firebase.auth().currentUser.uid,
             phoneNumber: document.getElementsByTagName('input')[0].value,
