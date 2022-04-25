@@ -32,7 +32,8 @@ let activate, password,PaperName;
 
 firebase.database().ref('Qus/' + localStorage.getItem('Key')).on("value", function(snapshot) {
     activate = snapshot.val().activate;
-    let id = snapshot.val().id;
+    let id = "";
+    id = snapshot.val().id;
     let paper = snapshot.val().paper;
     password = snapshot.val().password;
     let state = snapshot.val().state;
@@ -42,7 +43,7 @@ firebase.database().ref('Qus/' + localStorage.getItem('Key')).on("value", functi
 
     document.getElementsByTagName('h4')[0].innerHTML = 'Paper : ' + paper;
     document.getElementsByTagName('p')[0].innerHTML = 'Subject : ' + subject;
-    document.getElementsByTagName('p')[1].innerHTML = 'Id : ' + id;
+    document.getElementsByTagName('p')[1].innerHTML = 'Id : ' + id.slice(0,30)+ '\n' + id.slice(30);
     document.getElementsByTagName('p')[2].innerHTML = 'State : ' + state;
     document.getElementsByTagName('p')[3].innerHTML = 'Examiner name : ' + teacher;
 
